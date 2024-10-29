@@ -6,6 +6,12 @@
 # Multiplicação de polinômios. #
 ################################
 
+# Multiplicação somente com polinômios de primeiro ou segundo grau #
+
+################################
+# Multiplicação de polinômios. #
+################################
+
 n = int(input("Quantos polinômios você deseja multiplicar? "))
 polinomios = []
 
@@ -17,14 +23,14 @@ for i in range(n):
         continue
 
     if grau == 1:
-        # Caso usuário escolha o polinômio de primeiro grau: ax + b
+        # Quando for polinômio de primeiro grau: ax + b
         polinomio = input("Digite os coeficientes do polinômio (ex: 2 3 para 2x + 3): ")
         coeficientes = list(map(float, polinomio.split()))
         if len(coeficientes) != 2:
             print("Erro: Um polinômio de primeiro grau deve ter 2 coeficientes.")
             continue
     else:
-        # Caso o usuário escolha o polinômio de segundo grau: ax^2 + bx + c
+        # Quando for polinômio de segundo grau: ax^2 + bx + c
         polinomio = input("Digite os coeficientes do polinômio (ex: 1 2 1 para x^2 + 2x + 1): ")
         coeficientes = list(map(float, polinomio.split()))
         if len(coeficientes) != 3:
@@ -33,8 +39,10 @@ for i in range(n):
 
     polinomios.append(coeficientes)
 
+# Iniciar o resultado com o primeiro polinômio
 resultado = polinomios[0]
 
+# Multiplicar todos os polinômios
 for polinomio in polinomios[1:]:
     grau_resultante = len(resultado) + len(polinomio) - 1
     novo_resultado = [0] * grau_resultante
@@ -45,6 +53,7 @@ for polinomio in polinomios[1:]:
 
     resultado = novo_resultado
 
+# Impressão do resultado
 resultado_str = " + ".join(f"{coef}x^{i}" for i, coef in enumerate(resultado) if coef != 0)
 print("Resultado da multiplicação dos polinômios:")
 print(resultado_str)
