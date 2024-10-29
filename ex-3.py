@@ -10,7 +10,7 @@ n = int(input("Quantos polinômios você deseja multiplicar? "))
 polinomos = []
 
 for i in range(n):
-    grau = int(input(f"Qual o grau do polinômio {i + 1} (1 ou 2)? "))
+    grau = int(input("Qual o grau do polinômio {i + 1} (1 ou 2)? "))
     
     if grau not in [1, 2]:
         print("Grau inválido. Por favor, insira 1 para primeiro grau ou 2 para segundo grau.")
@@ -45,7 +45,6 @@ for polinomio in polinomos[1:]:
 
     resultado = novo_resultado
 
-# Impressão do resultado
 resultado_str = " + ".join(f"{coef}x^{i}" for i, coef in enumerate(resultado) if coef != 0)
 print("Resultado da multiplicação dos polinômios:")
 print(resultado_str)
