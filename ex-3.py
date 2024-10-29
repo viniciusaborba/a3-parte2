@@ -7,7 +7,7 @@
 ################################
 
 n = int(input("Quantos polinômios você deseja multiplicar? "))
-polinomos = []
+polinomios = []
 
 for i in range(n):
     grau = int(input("Qual o grau do polinômio {i + 1} (1 ou 2)? "))
@@ -31,11 +31,11 @@ for i in range(n):
             print("Erro: Um polinômio de segundo grau deve ter 3 coeficientes.")
             continue
 
-    polinomos.append(coeficientes)
+    polinomios.append(coeficientes)
 
-resultado = polinomos[0]
+resultado = polinomios[0]
 
-for polinomio in polinomos[1:]:
+for polinomio in polinomios[1:]:
     grau_resultante = len(resultado) + len(polinomio) - 1
     novo_resultado = [0] * grau_resultante
 
