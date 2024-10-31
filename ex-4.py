@@ -1,3 +1,7 @@
+# Faça um algoritmo em que o usuário informa todos os parâmetros necessários para formar dois ou mais
+# polinômios e executar a divisão entre esses polinômios. Não utilizar bibliotecas e funções prontas
+# do python. O uso de recursividade é permitido.
+
 ##########################
 # Divisão de polinômios. #
 ##########################
