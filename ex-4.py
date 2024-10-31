@@ -2,6 +2,16 @@
 # Divisão de polinômios. #
 ##########################
 
+# A divisão não poderá ser realizada se o coeficiente principal do polinômio divisor for 0, pois a divisão
+# por zero é indefinida.
+
+# O grau do dividendo não pode ser maior que o grau do divisor, pois, na divisão de polinômios, caso seja,
+# o resultado da divisão vai ser zero e o dividendo vai ser considerado o resto. Porém, obviamente ambos os
+# graus do divisor e dividendo podem ser iguais.
+
+# Certamente o coeficiente do polinomio de 1 grau não pode exceder 2 valores e o de 2 grau não pode exceder
+# 3 valores.
+
 # Primeiro polinômio (dividendo)
 while True:
     grau_dividendo = input("Qual o grau do polinômio dividendo (1 ou 2)? ")
@@ -12,16 +22,16 @@ while True:
     grau_dividendo = int(grau_dividendo)
 
     if grau_dividendo == 1:
-        polinomio_dividendo = input("Digite os coeficientes do polinômio dividendo (ex: 2 3 para 2x + 3): ")
+        polinomio_dividendo = input("Digite os coeficientes do polinômio dividendo (ex: 2 ou 2 3 para 2x + 3): ")
         coef_dividendo = list(map(float, polinomio_dividendo.split()))
-        if len(coef_dividendo) != 2:
-            print("Erro: Um polinômio de primeiro grau deve ter exatamente 2 coeficientes.")
+        if len(coef_dividendo) > 2:
+            print("Erro: Um polinômio de primeiro grau deve ter no máximo 2 coeficientes.")
             continue
     else:
         polinomio_dividendo = input("Digite os coeficientes do polinômio dividendo (ex: 1 2 1 para x^2 + 2x + 1): ")
         coef_dividendo = list(map(float, polinomio_dividendo.split()))
-        if len(coef_dividendo) != 3:
-            print("Erro: Um polinômio de segundo grau deve ter exatamente 3 coeficientes.")
+        if len(coef_dividendo) > 3:
+            print("Erro: Um polinômio de segundo grau deve ter no máximo 3 coeficientes.")
             continue
     break
 
@@ -35,21 +45,28 @@ while True:
     grau_divisor = int(grau_divisor)
 
     if grau_divisor == 1:
-        polinomio_divisor = input("Digite os coeficientes do polinômio divisor (ex: 2 3 para 2x + 3): ")
+        polinomio_divisor = input("Digite os coeficientes do polinômio divisor (ex: 2 ou 2 3 para 2x + 3): ")
         coef_divisor = list(map(float, polinomio_divisor.split()))
-        if len(coef_divisor) != 2:
-            print("Erro: Um polinômio de primeiro grau deve ter exatamente 2 coeficientes.")
+        if len(coef_divisor) > 2:
+            print("Erro: Um polinômio de primeiro grau deve ter no máximo 2 coeficientes.")
             continue
     else:
         polinomio_divisor = input("Digite os coeficientes do polinômio divisor (ex: 1 2 1 para x^2 + 2x + 1): ")
         coef_divisor = list(map(float, polinomio_divisor.split()))
-        if len(coef_divisor) != 3:
-            print("Erro: Um polinômio de segundo grau deve ter exatamente 3 coeficientes.")
+        if len(coef_divisor) > 3:
+            print("Erro: Um polinômio de segundo grau deve ter no máximo 3 coeficientes.")
             continue
+
+    # Verificação se o coeficiente principal do divisor é zero
+    if coef_divisor[0] == 0:
+        print("Erro: O coeficiente principal do polinômio divisor não pode ser zero.")
+        continue
+
     break
 
-if grau_divisor >= grau_dividendo:
-    print("Erro: O grau do divisor deve ser menor que o grau do dividendo.")
+# Verificação de graus
+if grau_dividendo < grau_divisor:
+    print("Erro: O grau do dividendo deve ser maior ou igual ao grau do divisor.")
 else:
     resultado = []
     while len(coef_dividendo) - 1 >= grau_divisor:
