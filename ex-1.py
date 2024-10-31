@@ -1,5 +1,9 @@
 def criar_polinomio():
     grau = int(input("Informe o grau do polinômio: "))
+    if grau > 2:
+        print("O polinômio deve ser de primeiro ou segundo grau!")
+        return None   
+    
     coeficientes = []
     for i in range(grau + 1):
         coef = int(input(f"Informe o coeficiente para x^{grau - i}: "))
@@ -35,7 +39,13 @@ def main():
 
     for i in range(num_polinomios):
         print(f"\nDefina os coeficientes do polinômio {i + 1}:")
-        polinomios.append(criar_polinomio())
+        polinomio = criar_polinomio()
+        
+        if polinomio is None:
+            print("Operação interrompida devido a um polinômio inválido.")
+            return
+
+        polinomios.append(polinomio)
 
     resultado = polinomios[0]
     for i in range(1, num_polinomios):
