@@ -1,3 +1,7 @@
+# Faça um algoritmo em que o usuário informa todos os parâmetros necessários para formar dois ou mais
+# polinômios e executar a soma entre esses polinômios. Não utilizar bibliotecas e funções prontas do
+# python. O uso de recursividade é permitido. 
+
 def criar_polinomio():
     grau = int(input("Informe o grau do polinômio: "))
     if grau > 2:
