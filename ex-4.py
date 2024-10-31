@@ -6,6 +6,8 @@
 # Divisão de polinômios. #
 ##########################
 
+# Fizemos a divisão ser apenas com dois polinômios
+
 # A divisão não poderá ser realizada se o coeficiente principal do polinômio divisor for 0, pois a divisão
 # por zero é indefinida.
 
